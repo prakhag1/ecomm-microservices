@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: main
+  name: main
+spec:
+  ports:
+  - name: "80"
+    port: 80
+    targetPort: 8080
+  selector:
+    service: main
+  type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    service: main
+  name: main
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        service: main
+    spec:
+      containers:
+      - env:
+        - name: ADS_SERVICE_ENDPOINT
+          value: ads:8001
+        - name: DB_HOST
+          value: [DB_IP]:3306
+        - name: DB_PASSWORD
+          valueFrom: 
+            secretKeyRef:
+              name: dbsecret
+              key: password
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: dbsecret
+              key: username
+        - name: RECOMMENDATION_SERVICE_ENDPOINT
+          value: recommendation
+        - name: RECOMMENDATION_SERVICE_PORT
+          value: "50051"
+        - name: ZEEBE_SERVICE_ENDPOINT
+          value: zeebe:26500
+        image: gcr.io/[PROJECT_ID]/hipster-microservice
+        name: hipster
+        ports:
+        - containerPort: 8080

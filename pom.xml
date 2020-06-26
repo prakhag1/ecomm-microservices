@@ -17,6 +17,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 		<grpc-spring-boot-starter.version>3.0.0</grpc-spring-boot-starter.version>
 		<os-maven-plugin.version>1.6.1</os-maven-plugin.version>
 		<protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
+		<opencensus.version>0.26.0</opencensus.version>
 	</properties>
 
 	<dependencyManagement>
@@ -28,6 +29,13 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<dependency>
+				<groupId>io.grpc</groupId>
+				<artifactId>grpc-bom</artifactId>
+				<version>1.28.0</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -38,6 +46,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	</parent>
 
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -127,6 +136,43 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 			<groupId>io.github.lognet</groupId>
 			<artifactId>grpc-spring-boot-starter</artifactId>
 			<version>${grpc-spring-boot-starter.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.opencensus</groupId>
+			<artifactId>opencensus-exporter-trace-stackdriver</artifactId>
+			<version>${opencensus.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.opencensus</groupId>
+			<artifactId>opencensus-api</artifactId>
+			<version>${opencensus.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.opencensus</groupId>
+			<artifactId>opencensus-contrib-grpc-metrics</artifactId>
+			<version>${opencensus.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.opencensus</groupId>
+			<artifactId>opencensus-impl</artifactId>
+			<version>${opencensus.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20190722</version>
 		</dependency>
 
 	</dependencies>
