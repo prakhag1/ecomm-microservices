@@ -62,7 +62,7 @@ func serveAd(w http.ResponseWriter, r *http.Request) {
 func main() {
   // Create and register a OpenCensus Stackdriver Trace exporter.
   exporter, err := stackdriver.NewExporter(stackdriver.Options{
-    ProjectID: os.Getenv("GOOGLE_CLOUD_PROJECT"),
+    ProjectID: os.Getenv("GCP_PROJECT_ID"),
   })
   
   if err != nil {

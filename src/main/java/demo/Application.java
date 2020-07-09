@@ -57,7 +57,7 @@ public class Application {
     // Register SD exporter for traces
     RpcViews.registerAllGrpcViews();
     StackdriverTraceExporter.createAndRegister(
-        StackdriverTraceConfiguration.builder().setProjectId("vital-octagon-109612").build());
+        StackdriverTraceConfiguration.builder().build());
   }
 
   @Bean

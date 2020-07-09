@@ -4,6 +4,7 @@ metadata:
   labels:
     service: recommendation
   name: recommendation
+  namespace: microservice
 spec:
   ports:
   - name: "50051"
@@ -18,6 +19,7 @@ metadata:
   labels:
     service: recommendation
   name: recommendation
+  namespace: microservice
 spec:
   replicas: 1
   template:
@@ -27,7 +29,9 @@ spec:
     spec:
       containers:
       - env:
-        image: gcr.io/[PROJECT_ID]/hipster-recommendation
+        - name: GCP_PROJECT_ID
+          value: [PROJECT_ID]
+        image: gcr.io/cloud-solutions-images/ecomm-recommendation
         name: recommendation
         ports:
         - containerPort: 50051

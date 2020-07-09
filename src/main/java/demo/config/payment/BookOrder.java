@@ -42,10 +42,10 @@ public class BookOrder implements JobHandler {
 
   @Override
   public void handle(JobClient client, ActivatedJob job) {
-    System.out.println("Order received");
+    System.out.println("Order received.");
     Cart cart = job.getVariablesAsType(Cart.class);
     orderService.addCustomerOrder(cart);
-    System.out.println("Saved order details in db");
+    System.out.println("Saved order details in local db.");
 
     // Call the next step in the workflow
     client

@@ -4,6 +4,7 @@ metadata:
   labels:
     service: payment
   name: payment
+  namespace: microservice
 spec:
   ports:
   - name: "9001"
@@ -18,6 +19,7 @@ metadata:
   labels:
     service: payment
   name: payment
+  namespace: microservice
 spec:
   replicas: 1
   template:
@@ -29,7 +31,7 @@ spec:
       - env:
         - name: ZEEBE_SERVICE_ENDPOINT
           value: zeebe:26500
-        image: gcr.io/[PROJECT_ID]/hipster-payment
+        image: gcr.io/cloud-solutions-images/ecomm-payment
         name: payment
         ports:
         - containerPort: 8080

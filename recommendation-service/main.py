@@ -1,3 +1,4 @@
+import os
 import grpc
 from concurrent import futures
 import time
@@ -12,7 +13,7 @@ from opencensus.trace.propagation import b3_format
 from opencensus.trace import samplers 
 from opencensus.trace import span_context
 
-stackdriverExporter = stackdriver_exporter.StackdriverExporter(project_id="vital-octagon-109612")
+stackdriverExporter = stackdriver_exporter.StackdriverExporter(project_id=os.environ.get("GCP_PROJECT_ID"))
             
 # create a class to define the server functions, derived from demo_pb2_grpc.RecommendationServiceServicer
 class RecommendationServiceServicer(demo_pb2_grpc.RecommendationServiceServicer):    

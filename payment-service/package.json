@@ -8,7 +8,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "zeebe-node": "^0.22.0",
-    "redis": "^3.0.2",
     "@google-cloud/trace-agent": "^4.2.5"
   }
 }

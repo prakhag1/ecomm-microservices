@@ -34,7 +34,7 @@ public class CancelOrder implements JobHandler {
 
 	@Override
 	public void handle(JobClient client, ActivatedJob job) {
-		System.out.println("Inside cancel order!!");
+		System.out.println("Inside cancel order. Placeholder for cleaning up locally saved db items.");
 		client.newCompleteCommand(job.getKey()).send().join();
 	}
 }

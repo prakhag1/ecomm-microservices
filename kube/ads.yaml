@@ -4,6 +4,7 @@ metadata:
   labels:
     service: ads
   name: ads
+  namespace: microservice
 spec:
   ports:
   - name: "8001"
@@ -18,6 +19,7 @@ metadata:
   labels:
     service: ads
   name: ads
+  namespace: microservice
 spec:
   replicas: 1
   template:
@@ -27,9 +29,9 @@ spec:
     spec:
       containers:
       - env:
-        - name: GOOGLE_CLOUD_PROJECT
+        - name: GCP_PROJECT_ID
           value: [PROJECT_ID]
-        image: gcr.io/[PROJECT_ID]/hipster-ads
+        image: gcr.io/cloud-solutions-images/ecomm-ads
         name: ads
         ports:
         - containerPort: 8001
