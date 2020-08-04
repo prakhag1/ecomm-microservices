@@ -32,6 +32,7 @@ spec:
         - name: GCP_PROJECT_ID
           value: [PROJECT_ID]
         image: gcr.io/cloud-solutions-images/ecomm-ads
+        imagePullPolicy: Always
         name: ads
         ports:
         - containerPort: 8001

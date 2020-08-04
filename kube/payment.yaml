@@ -32,6 +32,7 @@ spec:
         - name: ZEEBE_SERVICE_ENDPOINT
           value: zeebe:26500
         image: gcr.io/cloud-solutions-images/ecomm-payment
+        imagePullPolicy: Always
         name: payment
         ports:
         - containerPort: 8080

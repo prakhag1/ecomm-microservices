@@ -51,6 +51,7 @@ spec:
         - name: ZEEBE_SERVICE_ENDPOINT
           value: zeebe:26500
         image: gcr.io/cloud-solutions-images/ecomm-frontend
+        imagePullPolicy: Always
         name: frontend
         ports:
         - containerPort: 8080

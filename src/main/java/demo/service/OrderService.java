@@ -16,4 +16,9 @@ public class OrderService {
 		cartRepository.save(cart);
 		return cart.getId();
 	}
+	
+	public Cart findOrderById(String orderId) {
+		return cartRepository.findOrderById(orderId);
+	}
 }
+
