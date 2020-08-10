@@ -12,10 +12,9 @@ function makePayment(job, complete) {
     console.log('Inside make payment');
     let params;
 
-    // Simulate payment exception
-    console.log('Payment declined');
-    params = updatePaymentStatus(job, false);
-    
+    // Dummy payment
+    params = updatePaymentStatus(job, true);    
+    console.log('Payment successful');
     complete.success(params);
 }
 
